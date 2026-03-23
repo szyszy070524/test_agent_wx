@@ -2,9 +2,12 @@
 Page({
   data: {
     selectedTab: 'login',
+    showError: false,
+    email: '',
+    password: '',
     tabs: [
-      { key: 'login', label: 'Log in', active: true },
-      { key: 'signup', label: 'Sign up', active: false },
+      { key: 'login', label: '登陆', active: true },
+      { key: 'signup', label: '注册', active: false },
     ],
     socialProviders: [
       { key: 'apple', label: 'Login with Apple', mark: 'A' },
@@ -26,5 +29,20 @@ Page({
     wx.navigateTo({
       url: '/pages/forgot-password/forgot-password',
     })
+  },
+  onEmailInput(e) {
+    this.setData({ email: e.detail.value })
+  },
+  onPasswordInput(e) {
+    this.setData({ password: e.detail.value })
+  },
+  onContinue() {
+    const { email, password } = this.data
+    if (!email || !password) {
+      this.setData({ showError: true })
+    } else {
+      this.setData({ showError: false })
+      // 执行登录逻辑
+    }
   },
 })

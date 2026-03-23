@@ -19,37 +19,41 @@
       <block wx:if="{{selectedTab === 'login'}}">
         <view class="form-section">
           <view class="field-group">
-            <text class="field-label">Your Email</text>
+            <text class="field-label">你的邮箱</text>
             <view class="field-box">
               <input
                 class="field-input"
                 type="text"
-                placeholder="Enter your email"
+                placeholder="请输入邮箱"
                 placeholder-class="field-placeholder"
+                value="{{email}}"
+                bindinput="onEmailInput"
               />
             </view>
           </view>
 
           <view class="field-group">
-            <text class="field-label">Password</text>
+            <text class="field-label">密码</text>
             <view class="field-box">
               <input
                 class="field-input"
                 type="text"
                 password
-                placeholder="Enter your password"
+                placeholder="请输入密码"
                 placeholder-class="field-placeholder"
+                value="{{password}}"
+                bindinput="onPasswordInput"
               />
               <text class="field-action">Hide</text>
             </view>
           </view>
 
-          <view class="field-meta">
-            <text class="field-hint">Wrong password</text>
+          <view class="field-meta" wx:if="{{showError}}">
+            <text class="field-hint">密码错误</text>
             <text class="field-link" bindtap="goToForgotPassword">Forgot password?</text>
           </view>
 
-          <view class="primary-button">Continue</view>
+          <view class="primary-button" bindtap="onContinue">Continue</view>
         </view>
 
         <view class="divider">
@@ -69,7 +73,7 @@
 
         <view class="footer-copy">
           <text class="footer-muted">Don't have an account? </text>
-          <text class="footer-link" data-key="signup" bindtap="switchTab">Sign up</text>
+          <text class="footer-link" data-key="signup" bindtap="switchTab">注册</text>
         </view>
       </block>
 
