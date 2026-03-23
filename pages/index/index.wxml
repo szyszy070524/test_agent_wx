@@ -69,7 +69,7 @@
 
         <view class="footer-copy">
           <text class="footer-muted">Don't have an account? </text>
-          <text class="footer-link" data-key="signup" bindtap="switchTab">Sign up1</text>
+          <text class="footer-link" data-key="signup" bindtap="switchTab">Sign up</text>
         </view>
       </block>
 
