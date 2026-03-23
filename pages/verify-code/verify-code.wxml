@@ -1,0 +1,49 @@
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="page">
+    <view class="back-button" bindtap="goBack">
+      <view class="back-icon"></view>
+    </view>
+
+    <view class="content">
+      <text class="title">Check your email</text>
+
+      <view class="subtitle-group">
+        <text class="subtitle">
+          We sent a reset link to
+          <text class="subtitle-strong"> contact@dscode...com</text>
+        </text>
+        <text class="subtitle">enter 5 digit code that mentioned in the email</text>
+      </view>
+
+      <input
+        class="code-hidden-input"
+        type="number"
+        maxlength="5"
+        value="{{codeValue}}"
+        focus="{{inputFocused}}"
+        cursor="{{codeValue.length}}"
+        bindinput="onCodeInput"
+      />
+
+      <view class="code-row" bindtap="focusCodeInput">
+        <block wx:for="{{codeBoxes}}" wx:key="*this">
+          <view class="code-box {{activeIndex === index ? 'code-box--active' : ''}}">
+            <text class="code-char">{{codeChars[index]}}</text>
+          </view>
+        </block>
+      </view>
+
+      <view
+        class="primary-button {{canVerify ? 'primary-button--enabled' : ''}}"
+        bindtap="goToPasswordReset"
+      >
+        Verify Code
+      </view>
+
+      <view class="footer-copy">
+        <text class="footer-muted">Haven't got the email yet? </text>
+        <text class="footer-link">Resend email</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>

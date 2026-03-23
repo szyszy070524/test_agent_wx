@@ -1,0 +1,136 @@
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  color: #1e1e1e;
+}
+
+.scrollarea {
+  flex: 1;
+  overflow-y: hidden;
+}
+
+.page {
+  min-height: 100%;
+  padding: calc(env(safe-area-inset-top) + 66rpx + 15px) 26rpx 80rpx;
+  box-sizing: border-box;
+}
+
+.back-button {
+  width: 84rpx;
+  height: 84rpx;
+  border-radius: 50%;
+  background: #ececec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-icon {
+  width: 24rpx;
+  height: 24rpx;
+  border-left: 4rpx solid #1e1e1e;
+  border-bottom: 4rpx solid #1e1e1e;
+  transform: rotate(45deg);
+  margin-left: 8rpx;
+  box-sizing: border-box;
+}
+
+.content {
+  margin-top: 54rpx;
+}
+
+.title {
+  display: block;
+  font-size: 56rpx;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #1e1e1e;
+}
+
+.subtitle-group {
+  margin-top: 22rpx;
+}
+
+.subtitle {
+  display: block;
+  font-size: 32rpx;
+  line-height: 1.55;
+  font-weight: 600;
+  color: #989898;
+}
+
+.subtitle-strong {
+  color: #545454;
+}
+
+.code-hidden-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.code-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20rpx;
+  margin-top: 58rpx;
+}
+
+.code-box {
+  width: 112rpx;
+  height: 112rpx;
+  border: 2rpx solid #e1e1e1;
+  border-radius: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.code-box--active {
+  border-color: #648ddb;
+}
+
+.code-char {
+  width: 100%;
+  text-align: center;
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #2a2a2a;
+}
+
+.primary-button {
+  height: 112rpx;
+  margin-top: 52rpx;
+  border-radius: 24rpx;
+  background: rgba(100, 141, 219, 0.4);
+  color: #ffffff;
+  font-size: 34rpx;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.primary-button--enabled {
+  background: #648ddb;
+}
+
+.footer-copy {
+  margin-top: 74rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.footer-muted {
+  color: #989898;
+}
+
+.footer-link {
+  color: #648ddb;
+  text-decoration: underline;
+}

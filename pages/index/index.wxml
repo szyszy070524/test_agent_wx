@@ -1,0 +1,79 @@
+<!-- index.wxml -->
+<navigation-bar title="" back="{{false}}" color="black" background="#FFFFFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="page">
+    <view class="auth-shell">
+      <view class="auth-tabs">
+        <block wx:for="{{tabs}}" wx:key="key">
+          <view
+            class="auth-tab {{item.active ? 'auth-tab--active' : ''}}"
+            data-key="{{item.key}}"
+            bindtap="switchTab"
+          >
+            {{item.label}}
+          </view>
+        </block>
+        <view class="auth-tab-indicator {{selectedTab === 'signup' ? 'auth-tab-indicator--signup' : ''}}"></view>
+      </view>
+
+      <block wx:if="{{selectedTab === 'login'}}">
+        <view class="form-section">
+          <view class="field-group">
+            <text class="field-label">Your Email</text>
+            <view class="field-box">
+              <input
+                class="field-input"
+                type="text"
+                placeholder="Enter your email"
+                placeholder-class="field-placeholder"
+              />
+            </view>
+          </view>
+
+          <view class="field-group">
+            <text class="field-label">Password</text>
+            <view class="field-box">
+              <input
+                class="field-input"
+                type="text"
+                password
+                placeholder="Enter your password"
+                placeholder-class="field-placeholder"
+              />
+              <text class="field-action">Hide</text>
+            </view>
+          </view>
+
+          <view class="field-meta">
+            <text class="field-hint">Wrong password</text>
+            <text class="field-link" bindtap="goToForgotPassword">Forgot password?</text>
+          </view>
+
+          <view class="primary-button">Continue</view>
+        </view>
+
+        <view class="divider">
+          <view class="divider-line"></view>
+          <text class="divider-text">Or</text>
+          <view class="divider-line"></view>
+        </view>
+
+        <view class="social-list">
+          <block wx:for="{{socialProviders}}" wx:key="key">
+            <view class="social-button">
+              <view class="social-mark">{{item.mark}}</view>
+              <text class="social-text">{{item.label}}</text>
+            </view>
+          </block>
+        </view>
+
+        <view class="footer-copy">
+          <text class="footer-muted">Don't have an account? </text>
+          <text class="footer-link" data-key="signup" bindtap="switchTab">Sign up</text>
+        </view>
+      </block>
+
+      <view wx:else class="signup-blank"></view>
+    </view>
+  </view>
+</scroll-view>
